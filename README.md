@@ -13,16 +13,7 @@ This repository containing a wallpaper download mobile app using Earth View imag
 
 ### App Screenshots
 
-<img src="image/whatsapp.gif" height="300em" />
-<img src="https://thumbs.gfycat.com/UnselfishAlertIceblueredtopzebra-size_restricted.gif" height="300em" />
-<img src="https://thumbs.gfycat.com/BadPrestigiousChrysalis-size_restricted.gif" height="300em" />
-<img src="https://thumbs.gfycat.com/GoldenCaringBurro-size_restricted.gif" height="300em" />
-<img src="image/flute1.png" height="300em" />
-<img src="image/flute3.png" height="300em"/>
-<img src="image/pmdb.gif" height="300em" />
-<img src="image/tic.gif" height="300em" />
-<img src="https://thumbs.gfycat.com/MajesticWeeKangaroo-size_restricted.gif" height="300em"/>
-<img src="https://thumbs.gfycat.com/DismalEmbellishedChicken-size_restricted.gif" height="300em"/>
+<img src="https://thumbs.gfycat.com/UnselfishAlertIceblueredtopzebra-size_restricted.gif" height="300em" /><img src="https://thumbs.gfycat.com/BadPrestigiousChrysalis-size_restricted.gif" height="300em" /><img src="https://thumbs.gfycat.com/GoldenCaringBurro-size_restricted.gif" height="300em" />
 
 ### Created & Maintained By
 
@@ -48,6 +39,6 @@ This repository containing a wallpaper download mobile app using Earth View imag
 
 For help getting started with Flutter, view our online
 [documentation](http://flutter.io/).
-![Image](image/fa.png)
+![Image](images/Google-flutter-logo.png)
 
 For help on editing plugin code, view the [documentation](https://flutter.io/platform-plugins/#edit-code).
