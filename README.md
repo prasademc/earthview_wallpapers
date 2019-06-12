@@ -1,8 +1,8 @@
-# earthview_wallpapers
+# Earthview Wallpapers
 
 ![Image](images/header.png)
 
-### Show some :heart: and star the Earthview wallpapers repository to support the project
+### Show some :like: and :star: the Earthview wallpapers repository to support the project
 
 [![GitHub stars](https://img.shields.io/github/stars/prasademc/earthview_wallpapers.svg?style=social&label=Star)](https://github.com/prasademc/earthview_wallpapers) [![GitHub forks](https://img.shields.io/github/forks/prasademc/earthview_wallpapers.svg?style=social&label=Fork)](https://github.com/prasademc/earthview_wallpapers/fork) [![GitHub watchers](https://img.shields.io/github/watchers/prasademc/earthview_wallpapers.svg?style=social&label=Watch)](https://github.com/prasademc/earthview_wallpapers) [![GitHub followers](https://img.shields.io/github/followers/prasademc.svg?style=social&label=Follow)](https://github.com/prasademc/earthview_wallpapers)  
 [![Twitter Follow](https://img.shields.io/twitter/follow/imthepk.svg?style=social)](https://twitter.com/imthepk)
