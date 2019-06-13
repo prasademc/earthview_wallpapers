@@ -25,8 +25,8 @@ class ImageDetailsPageState extends State<ImageDetailsPage> {
   bool downloading = false;
   var progressString = "";
 
-  Color gradientStart = Colors.deepPurple[700];
-  Color gradientEnd = Colors.purple[500];
+  Color gradientStart = const Color(0xFFEBEA6F);
+  Color gradientEnd = const Color(0xFF12B5BA);
 
   @override
   void initState() {
@@ -60,8 +60,11 @@ class ImageDetailsPageState extends State<ImageDetailsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: new Text('${widget.title}'),
-        backgroundColor: const Color(0xFF171432),
+        title: new Text(
+          '${widget.title}',
+          style: TextStyle(color: const Color(0xFFFBC012)),
+        ),
+        backgroundColor: const Color(0xFFFFFFFF),
         leading: Builder(
           builder: (BuildContext context) {
             return IconButton(
@@ -77,68 +80,46 @@ class ImageDetailsPageState extends State<ImageDetailsPage> {
           },
         ),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        mainAxisSize: MainAxisSize.max,
-        crossAxisAlignment: CrossAxisAlignment.center,
+      body: new Stack(
         children: <Widget>[
-          Expanded(
-            child: Container(
-              child: ExtendedImage.network(
-                widget.imgURL,
-                fit: BoxFit.fitHeight,
-                enableLoadState: true,
-                mode: ExtendedImageMode.Gesture,
-                gestureConfig: GestureConfig(
-                    minScale: 0.9,
-                    animationMinScale: 0.7,
-                    maxScale: 3.0,
-                    animationMaxScale: 3.5,
-                    speed: 1.0,
-                    inertialSpeed: 100.0,
-                    initialScale: 1.0,
-                    inPageView: false),
+          new Positioned.fill(
+            child: new ExtendedImage.network(
+              widget.imgURL,
+              fit: BoxFit.contain,
+              enableLoadState: false,
+              mode: ExtendedImageMode.Gesture,
+              gestureConfig: GestureConfig(
+                minScale: 0.9,
+                animationMinScale: 0.7,
+                maxScale: 3.0,
+                animationMaxScale: 3.5,
+                speed: 1.0,
+                inertialSpeed: 100.0,
+                initialScale: 1.0,
+                inPageView: false,
               ),
             ),
-            flex: 7,
           ),
-          Expanded(
-            child: Container(
-              child: Center(
-                  child: downloading
-                      ? Container(
-                          height: 80.0,
-                          width: 200.0,
-                          decoration: BoxDecoration(
-                            gradient: new LinearGradient(
-                                colors: [gradientStart, gradientEnd],
-                                begin: const FractionalOffset(0.5, 0.0),
-                                end: const FractionalOffset(0.0, 0.5),
-                                stops: [0.0, 1.0],
-                                tileMode: TileMode.clamp),
-                          ),
-                          child: Card(
-                            color: Colors.transparent,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                CircularProgressIndicator(
-                                  backgroundColor: const Color(0xFFFFFFFF),
-                                ),
-                                SizedBox(
-                                  height: 10.0,
-                                ),
-                                Text(
-                                  'Downloading Wallpaper: $progressString',
-                                  style: Theme.of(context).textTheme.caption,
-                                )
-                              ],
-                            ),
-                          ),
-                        )
-                      : Text('')),
-            ),
-            flex: 3,
+          Center(
+            child: downloading
+                ? Container(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        SizedBox(
+                          child: CircularProgressIndicator(),
+                          height: 50.0,
+                          width: 50.0,
+                        ),
+                        SizedBox(
+                            child: Text(
+                          'Downloading Wallpaper: $progressString',
+                          style: Theme.of(context).textTheme.caption,
+                        ))
+                      ],
+                    ),
+                  )
+                : Text(''),
           ),
         ],
       ),

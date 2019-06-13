@@ -13,7 +13,7 @@ This repository containing a wallpaper download mobile app using Earth View imag
 
 ### App Screenshots
 
-<img src="https://thumbs.gfycat.com/UnselfishAlertIceblueredtopzebra-size_restricted.gif" height="300em" />&nbsp;&nbsp;<img src="https://thumbs.gfycat.com/BadPrestigiousChrysalis-size_restricted.gif" height="300em" />&nbsp;&nbsp;<img src="https://thumbs.gfycat.com/GoldenCaringBurro-size_restricted.gif" height="300em" />
+<img src="images/screen1.png" height="300em" />&nbsp;&nbsp;<img src="images/screen2.png" height="300em" />&nbsp;&nbsp;<img src="images/screen3.png" height="300em" />&nbsp;&nbsp;<img src="images/screen4.png" height="300em" />
 
 ### Created & Maintained By
 

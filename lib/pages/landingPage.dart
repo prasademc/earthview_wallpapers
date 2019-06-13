@@ -22,7 +22,6 @@ class LandingPageState extends State<LandingPage> {
   Color gradientStart = const Color(0xFFEBEA6F);
   Color gradientEnd = const Color(0xFF12B5BA);
   List imageData = [];
-  bool like = false;
   ScrollController _scrollController = new ScrollController();
   bool lastStatus = true;
 
@@ -96,8 +95,8 @@ class LandingPageState extends State<LandingPage> {
                 style: TextStyle(
                   color: isShrink
                       ? const Color(0xFFFBC012)
-                      : const Color(0xFF171432),
-                  fontSize: 16.0,
+                      : const Color(0xFFDFDFDF),
+                  fontSize: isShrink ? 24.0 : 12.0,
                 ),
               ),
               background: Image.asset(
@@ -115,7 +114,7 @@ class LandingPageState extends State<LandingPage> {
                           vertical: 16.0, horizontal: 16.0),
                       child: new GestureDetector(
                         child: new Card(
-                          elevation: 6.0,
+                          elevation: 1.0,
                           clipBehavior: Clip.antiAliasWithSaveLayer,
                           shape: new RoundedRectangleBorder(
                             borderRadius: new BorderRadius.circular(6.0),
@@ -174,31 +173,7 @@ class LandingPageState extends State<LandingPage> {
                                           ],
                                         ),
                                       ),
-                                      Expanded(
-                                        flex: 1,
-                                        child: Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: <Widget>[
-                                            SizedBox(
-                                              width: 20.0,
-                                              height: 20.0,
-                                              child: IconButton(
-                                                  icon: like
-                                                      ? Icon(EvaIcons.heart)
-                                                      : Icon(EvaIcons
-                                                          .heartOutline),
-                                                  color:
-                                                      const Color(0xFFFFFFFF),
-                                                  onPressed: () {
-                                                    setState(() {
-                                                      like = true;
-                                                    });
-                                                  }),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
+                                      Post(),
                                     ],
                                   ),
                                 ),
@@ -238,6 +213,42 @@ class LandingPageState extends State<LandingPage> {
           color: const Color(0xFFFFFFFF),
         ),
         backgroundColor: const Color(0xFFFBC012),
+      ),
+    );
+  }
+}
+
+class Post extends StatefulWidget {
+  @override
+  PostState createState() => new PostState();
+}
+
+class PostState extends State<Post> {
+  bool liked = false;
+
+  _likedPressed() {
+    setState(() {
+      liked = !liked;
+    });
+  }
+
+  @override
+  Widget build(BuildContext contaxt) {
+    return Expanded(
+      flex: 1,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          SizedBox(
+            width: 30.0,
+            height: 30.0,
+            child: IconButton(
+              icon: liked ? Icon(EvaIcons.heart) : Icon(EvaIcons.heartOutline),
+              color: liked ? const Color(0xFFFBC012) : const Color(0xFFFFFFFF),
+              onPressed: () => _likedPressed(),
+            ),
+          ),
+        ],
       ),
     );
   }
