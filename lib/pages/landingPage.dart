@@ -24,6 +24,7 @@ class LandingPageState extends State<LandingPage> {
   List imageData = [];
   bool like = false;
   ScrollController _scrollController = new ScrollController();
+  bool lastStatus = true;
 
   List shuffle(List items) {
     var random = new Random();
@@ -51,9 +52,30 @@ class LandingPageState extends State<LandingPage> {
     return 'success';
   }
 
+  _scrollListener() {
+    if (isShrink != lastStatus) {
+      setState(() {
+        lastStatus = isShrink;
+      });
+    }
+  }
+
+  bool get isShrink {
+    return _scrollController.hasClients &&
+        _scrollController.offset > (200 - kToolbarHeight);
+  }
+
   @override
   void initState() {
+    _scrollController = ScrollController();
+    _scrollController.addListener(_scrollListener);
     this.loadImageData();
+  }
+
+  @override
+  void dispose() {
+    _scrollController.removeListener(_scrollListener);
+    super.dispose();
   }
 
   @override
@@ -69,7 +91,15 @@ class LandingPageState extends State<LandingPage> {
             backgroundColor: const Color(0xFFFFFFFF),
             flexibleSpace: FlexibleSpaceBar(
               centerTitle: true,
-              title: Text('Earthview Wallpapers'),
+              title: Text(
+                'Earthview Wallpapers',
+                style: TextStyle(
+                  color: isShrink
+                      ? const Color(0xFFFBC012)
+                      : const Color(0xFF171432),
+                  fontSize: 16.0,
+                ),
+              ),
               background: Image.asset(
                 'assets/images/appBarBg.png',
                 fit: BoxFit.cover,
