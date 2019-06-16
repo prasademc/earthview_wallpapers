@@ -86,7 +86,7 @@ class ImageDetailsPageState extends State<ImageDetailsPage> {
             child: new ExtendedImage.network(
               widget.imgURL,
               fit: BoxFit.contain,
-              enableLoadState: false,
+              enableLoadState: true,
               mode: ExtendedImageMode.Gesture,
               gestureConfig: GestureConfig(
                 minScale: 0.9,
