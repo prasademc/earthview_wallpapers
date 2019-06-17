@@ -4,9 +4,10 @@ import 'package:flutter/services.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/widgets.dart';
 import 'dart:async';
-import 'package:path_provider/path_provider.dart';
-import 'package:dio/dio.dart';
+// import 'package:path_provider/path_provider.dart';
+// import 'package:dio/dio.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
+import 'package:image_downloader/image_downloader.dart';
 
 class ImageDetailsPage extends StatefulWidget {
   final String title;
@@ -24,6 +25,7 @@ class ImageDetailsPageState extends State<ImageDetailsPage> {
   static const platform = const MethodChannel('wallpaper');
   bool downloading = false;
   var progressString = "";
+  int _progress = 0;
 
   Color gradientStart = const Color(0xFFEBEA6F);
   Color gradientEnd = const Color(0xFF12B5BA);
@@ -31,28 +33,29 @@ class ImageDetailsPageState extends State<ImageDetailsPage> {
   @override
   void initState() {
     super.initState();
+
+    ImageDownloader.callback(onProgressUpdate: (String imageId, int progress) {
+      setState(() {
+        downloading = true;
+        _progress = progress;
+      });
+    });
   }
 
-  Future<void> downloadWallpaper(url, title) async {
-    Dio dio = Dio();
-
+  Future<void> downloadWallpaper(url) async {
+    downloading = true;
     try {
-      var dir = await getApplicationDocumentsDirectory();
+      var imageId = await ImageDownloader.downloadImage(url);
 
-      await dio.download(url, "${dir.path}/${title}.jpg",
-          onReceiveProgress: (rec, total) {
-        setState(() {
-          downloading = true;
-          progressString = ((rec / total) * 100).toStringAsFixed(0) + '%';
-        });
-      });
-    } catch (err) {
-      print(err);
+      if (imageId == null) {
+        return;
+      }
+    } on PlatformException catch (error) {
+      print(error);
     }
 
     setState(() {
       downloading = false;
-      progressString = 'Finish';
     });
   }
 
@@ -113,7 +116,7 @@ class ImageDetailsPageState extends State<ImageDetailsPage> {
                         ),
                         SizedBox(
                             child: Text(
-                          'Downloading Wallpaper: $progressString',
+                          'Downloading Wallpaper: _progress',
                           style: Theme.of(context).textTheme.caption,
                         ))
                       ],
@@ -126,7 +129,7 @@ class ImageDetailsPageState extends State<ImageDetailsPage> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          downloadWallpaper(widget.downloadURL, widget.title);
+          downloadWallpaper(widget.downloadURL);
         },
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
