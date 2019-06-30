@@ -36,17 +36,20 @@ class ImageDetailsPageState extends State<ImageDetailsPage> {
 
     ImageDownloader.callback(onProgressUpdate: (String imageId, int progress) {
       setState(() {
-        downloading = true;
         _progress = progress;
+        downloading = true;
+        if (_progress == 100) {
+          downloading = false;
+        }
       });
     });
   }
 
   Future<void> downloadWallpaper(url) async {
     downloading = true;
+
     try {
       var imageId = await ImageDownloader.downloadImage(url);
-
       if (imageId == null) {
         return;
       }
@@ -116,7 +119,7 @@ class ImageDetailsPageState extends State<ImageDetailsPage> {
                         ),
                         SizedBox(
                             child: Text(
-                          'Downloading Wallpaper: _progress',
+                          'Downloading Wallpaper: ${_progress}',
                           style: Theme.of(context).textTheme.caption,
                         ))
                       ],

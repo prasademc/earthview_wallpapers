@@ -1,22 +1,28 @@
 PODS:
   - Flutter (1.0.0)
+  - image_downloader (0.0.1):
+    - Flutter
   - path_provider (0.0.1):
     - Flutter
 
 DEPENDENCIES:
   - Flutter (from `.symlinks/flutter/ios`)
+  - image_downloader (from `.symlinks/plugins/image_downloader/ios`)
   - path_provider (from `.symlinks/plugins/path_provider/ios`)
 
 EXTERNAL SOURCES:
   Flutter:
     :path: ".symlinks/flutter/ios"
+  image_downloader:
+    :path: ".symlinks/plugins/image_downloader/ios"
   path_provider:
     :path: ".symlinks/plugins/path_provider/ios"
 
 SPEC CHECKSUMS:
   Flutter: 58dd7d1b27887414a370fcccb9e645c08ffd7a6a
+  image_downloader: e5e747da37f5270b2d549747fcef9d276224d7b1
   path_provider: f96fff6166a8867510d2c25fdcc346327cc4b259
 
-PODFILE CHECKSUM: aff02bfeed411c636180d6812254b2daeea14d09
+PODFILE CHECKSUM: 4f63cb916e2346be908001f91c3d631892a9e1e8
 
 COCOAPODS: 1.6.1

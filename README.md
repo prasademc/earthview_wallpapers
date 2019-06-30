@@ -15,6 +15,10 @@ This repository containing a wallpaper download mobile app using Earth View imag
 
 <img src="images/screen1.png" height="300em" />&nbsp;&nbsp;<img src="images/screen2.png" height="300em" />&nbsp;&nbsp;<img src="images/screen3.png" height="300em" />&nbsp;&nbsp;<img src="images/screen4.png" height="300em" />
 
+### Download
+
+[Download Earthview Wallpapers](https://play.google.com/store/apps/details?id=com.chaminda.earthview_wallpapers)
+
 ### Created & Maintained By
 
 [Chaminda Prasad](https://github.com/prasademc)
