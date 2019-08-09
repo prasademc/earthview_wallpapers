@@ -89,21 +89,22 @@ class ImageDetailsPageState extends State<ImageDetailsPage> {
       body: new Stack(
         children: <Widget>[
           new Positioned.fill(
-            child: new ExtendedImage.network(
+            child: ExtendedImage.network(
               widget.imgURL,
               fit: BoxFit.contain,
               enableLoadState: true,
               mode: ExtendedImageMode.Gesture,
-              gestureConfig: GestureConfig(
-                minScale: 0.9,
-                animationMinScale: 0.7,
-                maxScale: 3.0,
-                animationMaxScale: 3.5,
-                speed: 1.0,
-                inertialSpeed: 100.0,
-                initialScale: 1.0,
-                inPageView: false,
-              ),
+              initGestureConfigHandler: (state) {
+                return GestureConfig(
+                    minScale: 0.9,
+                    animationMinScale: 0.7,
+                    maxScale: 3.0,
+                    animationMaxScale: 3.5,
+                    speed: 1.0,
+                    inertialSpeed: 100.0,
+                    initialScale: 1.0,
+                    inPageView: false);
+              },
             ),
           ),
           Center(

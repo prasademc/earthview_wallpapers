@@ -25,7 +25,7 @@ dependencies:
   cupertino_icons: ^0.1.2
   eva_icons_flutter: ^1.0.4
   transparent_image: ^1.0.0
-  extended_image: ^0.3.6
+  extended_image: ^0.5.5
   dio: ^2.1.0
   path_provider: ^1.1.0
   image_downloader: ^0.15.4
