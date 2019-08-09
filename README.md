@@ -5,8 +5,6 @@
 ### Show some :love: and :star: the Earthview wallpapers repository to support the project
 
 [![GitHub stars](https://img.shields.io/github/stars/prasademc/earthview_wallpapers.svg?style=social&label=Star)](https://github.com/prasademc/earthview_wallpapers) [![GitHub forks](https://img.shields.io/github/forks/prasademc/earthview_wallpapers.svg?style=social&label=Fork)](https://github.com/prasademc/earthview_wallpapers/fork) [![GitHub watchers](https://img.shields.io/github/watchers/prasademc/earthview_wallpapers.svg?style=social&label=Watch)](https://github.com/prasademc/earthview_wallpapers) [![GitHub followers](https://img.shields.io/github/followers/prasademc.svg?style=social&label=Follow)](https://github.com/prasademc/earthview_wallpapers)  
-[![Twitter Follow](https://img.shields.io/twitter/follow/imthepk.svg?style=social)](https://twitter.com/imthepk)
-
 This repository containing a wallpaper download mobile app using Earth View images, Earth View is a collection of the most beautiful and striking landscapes found in Google Earth.
 
 [Earthview](https://earthview.withgoogle.com/) Wallpaper app build using [Flutter](https://flutter.io/).
